@@ -1,0 +1,32 @@
+{
+  "name": "sq",
+  "version": "1.0.0",
+  "description": "Generic transaction manager for nodejs",
+  "dependencies": {
+    "co": "MichaelDiguet/co"
+  },
+  "devDependencies": {
+    "browserify": "^10.0.0",
+    "istanbul-harmony": "0",
+    "mocha": "^2.0.0",
+    "mz": "^1.0.2"
+  },
+  "scripts": {
+    "test": "mocha --harmony"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelDiguet/sq.git"
+  },
+  "keywords": [
+    "transaction",
+    "nodejs",
+    "co"
+  ],
+  "author": "Michaël Diguet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichaelDiguet/sq/issues"
+  },
+  "homepage": "https://github.com/MichaelDiguet/sq#readme"
+}
