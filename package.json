@@ -1,6 +1,6 @@
 {
-  "name": "sq",
-  "version": "1.0.0",
+  "name": "sq-ts",
+  "version": "1.0.1",
   "description": "Generic transaction manager for nodejs",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
