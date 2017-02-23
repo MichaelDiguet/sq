@@ -2,6 +2,8 @@
   "name": "sq",
   "version": "1.0.0",
   "description": "Generic transaction manager for nodejs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {
     "co": "MichaelDiguet/co"
   },
