@@ -1,11 +1,11 @@
 var assert = require('assert');
-var sequence = require('../src/Sequence.js');
+var sequence = require('../dist/Sequence.js');
 var sq = sequence.sq;
-var st = require('../src/SampleTransac.js');
+var st = require('../dist/SampleTransac.js');
 var SampleTransac = st.default;
 var incrementGlobalCounter = st.incrementGlobalCounter;
 
-var set = require('../src/SampleErrorTransac.js');
+var set = require('../dist/SampleErrorTransac.js');
 var SampleErrorTransac = set.default;
 var launchError = set.launchError;
 

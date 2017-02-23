@@ -20,9 +20,9 @@ export class Sequence implements Transaction {
     let coParams = [this.gen].concat(this.genArgs);
     return new TPromise(
       function (resolve, reject) {
-        co.apply(ctx, coParams).then(function (res) {
+        co.apply(ctx, coParams).then(function (res: any) {
           resolve(res);
-        }).catch(function (err) {
+        }).catch(function (err: any) {
           reject(err);
         });
       }, this
@@ -49,11 +49,11 @@ export class Sequence implements Transaction {
   // These two last private methods are used for co customization.
   // They will be called on the unit transactions that will be launched by this sequence commit.
 
-  private isYieldable(obj: any): obj is Transaction {
+  isYieldable(obj: any): obj is Transaction {
     return isTransaction(obj) || isTPromise(obj);
   }
 
-  private toPromise(obj: Transaction | TPromise): Promise<any> {
+  toPromise(obj: Transaction | TPromise): Promise<any> {
     let tPromise = isTransaction(obj) ? obj.commit() : obj;
     this.rollbackList.push([tPromise, tPromise.transaction]);
     return tPromise;

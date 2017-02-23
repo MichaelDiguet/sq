@@ -1,5 +1,5 @@
 var assert = require('assert');
-var sequence = require('../src/Sequence.js');
+var sequence = require('../dist/Sequence.js');
 var sq = sequence.sq;
 
 var read = require('mz/fs').readFile;

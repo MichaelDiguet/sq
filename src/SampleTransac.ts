@@ -1,5 +1,5 @@
 import Transaction from "./Transaction";
-import { TPromise, isTPromise } from "./TPromise";
+import TPromise from "./TPromise";
 
 export class SampleTransac implements Transaction {
 
