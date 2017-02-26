@@ -46,7 +46,7 @@ export class Sequence implements Transaction {
     });
   }
 
-  // These two last private methods are used for co customization.
+  // These two last methods are used for co customization (see https://github.com/MichaelDiguet/co.git).
   // They will be called on the unit transactions that will be launched by this sequence commit.
 
   isYieldable(obj: any): obj is Transaction {
@@ -60,6 +60,9 @@ export class Sequence implements Transaction {
   }
 };
 
+// This returns a Promise and not a TPromise, to discourage using sq inside another sq.
+// sq causes an automatic rollback in case of error, so this is not a Transaction.
+// The right pattern is to use Sequence in sq, a Sequence is a proper Transaction.
 export function sq(gen: () => Iterator<any>, ...restOfArgs: any[]): Promise<any> {
   var s = new Sequence(gen, restOfArgs);
   return s.commit().catch(function (errDuringCommit) {
@@ -69,7 +72,7 @@ export function sq(gen: () => Iterator<any>, ...restOfArgs: any[]): Promise<any>
       throw errDuringRollback;
     }).then(function () {
       // The error launched during the sequence caused a successful rollback
-      if (errDuringCommit instanceof Object) errDuringCommit.causedRollbackOfTransaction = true;
+      if (errDuringCommit instanceof Object) errDuringCommit.transactionRollbackSucceed = true;
       throw errDuringCommit;
     });
   });

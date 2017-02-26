@@ -75,7 +75,7 @@ describe('sq(* -> yield <transaction>', function(){
         yield launchError();
       }).catch(function(err) {
         assert('sample error' == err.message);
-        assert(err.causedRollbackOfTransaction === true);
+        assert(err.transactionRollbackSucceed === true);
         assert(SampleTransac.globalCounter === 0);
       });
     })
@@ -89,7 +89,7 @@ describe('sq(* -> yield <transaction>', function(){
         yield launchError();
       }).catch(function(err) {
         assert('sample error' == err.message);
-        assert(err.causedRollbackOfTransaction === true);
+        assert(err.transactionRollbackSucceed === true);
         assert(SampleTransac.globalCounter === 0);
       });
     })
