@@ -3,12 +3,12 @@
   "files.exclude": {
     // include the defaults from VS Code
     "**/.git": true,
-    "**/.DS_Store": true,
+    "**/.DS_Store": true
     // exclude .js and .js.map files, when in a TypeScript project
-    "**/*.js": {
-      "when": "$(basename).ts"
-    },
-    "**/*.js.map": true
+    //"**/*.js": {
+    //  "when": "$(basename).ts"
+    //},
+    //"**/*.js.map": true
   },
   "editor.tabSize": 2,
   "fileheader.tpl": "/*\r\n * Copyright (C) YELLOAN - All Rights Reserved\r\n * Unauthorized copying of this file, via any medium is strictly prohibited\r\n * Proprietary and confidential\r\n * Written by {author}, {createTime}\r\n * \r\n * Last modified by {lastModifiedBy}, {updateTime}\r\n */"

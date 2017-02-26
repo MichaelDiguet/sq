@@ -33,7 +33,10 @@
       ],
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": null,
-      "sourceMaps": true
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/{dist,node_modules}/**/*.js"
+      ]
     }
   ]
 }
