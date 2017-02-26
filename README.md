@@ -10,10 +10,10 @@
 
   MIT
 
-[npm-image]: https://img.shields.io/npm/v/sq.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/sq
-[travis-image]: https://img.shields.io/travis/tj/co.svg?style=flat-square
-[travis-url]: https://travis-ci.org/tj/co
+[npm-image]: https://img.shields.io/npm/v/sq-ts.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/sq-ts
+[travis-image]: https://img.shields.io/travis/MichaelDiguet/sq.svg?style=flat-square
+[travis-url]: https://travis-ci.org/MichaelDiguet/sq
 [coveralls-image]: https://img.shields.io/coveralls/tj/co.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/tj/co
 [downloads-image]: http://img.shields.io/npm/dm/co.svg?style=flat-square
