@@ -19,4 +19,4 @@
 [downloads-image]: http://img.shields.io/npm/dm/sq-ts.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/sq-ts
 [gitter-image]: https://badges.gitter.im/Join%20Chat.svg
-[gitter-url]: https://gitter.im/MichaelDiguet/sq?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[gitter-url]: https://gitter.im/sq-ts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
