@@ -10,8 +10,8 @@
 
   MIT
 
-[npm-image]: https://img.shields.io/npm/v/co.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/co
+[npm-image]: https://img.shields.io/npm/v/sq.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/sq
 [travis-image]: https://img.shields.io/travis/tj/co.svg?style=flat-square
 [travis-url]: https://travis-ci.org/tj/co
 [coveralls-image]: https://img.shields.io/coveralls/tj/co.svg?style=flat-square
