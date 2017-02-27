@@ -1,6 +1,6 @@
-var assert = require('assert');
-var sequence = require('../dist/Sequence.js');
-var sq = sequence.sq;
+/*import * as assert from 'assert';
+import {sq} from '../dist/Sequence.js';
+
 
 describe('sq(gen, args)', function () {
   it('should pass the rest of the arguments', function () {
@@ -12,4 +12,4 @@ describe('sq(gen, args)', function () {
       assert(fun instanceof Function)
     }, 42, 'forty-two', [42], { value: 42 }, function () {});
   })
-})
+})*/

@@ -1,8 +1,8 @@
-var assert = require('assert');
-var sequence = require('../dist/Sequence.js');
-var sq = sequence.sq;
+import * as assert from 'assert';
+import {sq} from '../src/Sequence';
+import * as co from 'co';
 
-function get(val, err, error) {
+function get(val, err?, error?) {
   return function(done){
     if (error) throw error;
     setTimeout(function(){
@@ -58,7 +58,7 @@ describe('sq(* -> yield fn(done))', function () {
     it('should be caught', function(){
       return sq(function *(){
         try {
-          var a = yield get(1, null, new Error('boom'));
+          yield get(1, null, new Error('boom'));
         } catch (err) {
           assert.equal('boom', err.message);
         }
@@ -160,8 +160,8 @@ describe('sq(* -> yield fn(done))', function () {
 
     describe('when nested', function(){
       it('should return the value', function(){
-        return sq(function *(){
-          var other = yield sq(function *(){
+        return co(function *(){
+          var other = yield co(function *(){
             return [
               yield get(4),
               yield get(5),
@@ -174,7 +174,7 @@ describe('sq(* -> yield fn(done))', function () {
             yield get(2),
             yield get(3)
           ].concat(other);
-        }).then(function (res) {
+        }).then(function (res) {          
           assert.deepEqual([1, 2, 3, 4, 5, 6], res);
         });
       })
@@ -187,13 +187,13 @@ describe('sq(* -> yield fn(done))', function () {
 
       return sq(function *(){
         try {
-          var a = yield 'something';
+          yield 'something';
         } catch (err) {
           errors.push(err.message);
         }
 
         try {
-          var a = yield 'something';
+          yield 'something';
         } catch (err) {
           errors.push(err.message);
         }
@@ -212,13 +212,13 @@ describe('sq(* -> yield fn(done))', function () {
 
       return sq(function *(){
         try {
-          var a = yield get(1, new Error('foo'));
+          yield get(1, new Error('foo'));
         } catch (err) {
           errors.push(err.message);
         }
 
         try {
-          var a = yield get(1, new Error('bar'));
+          yield get(1, new Error('bar'));
         } catch (err) {
           errors.push(err.message);
         }
@@ -232,13 +232,13 @@ describe('sq(* -> yield fn(done))', function () {
 
       return sq(function *(){
         try {
-          var a = yield get(1, null, new Error('foo'));
+          yield get(1, null, new Error('foo'));
         } catch (err) {
           errors.push(err.message);
         }
 
         try {
-          var a = yield get(1, null, new Error('bar'));
+          yield get(1, null, new Error('bar'));
         } catch (err) {
           errors.push(err.message);
         }

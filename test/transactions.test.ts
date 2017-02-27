@@ -1,20 +1,13 @@
-var assert = require('assert');
-var sequence = require('../dist/Sequence.js');
-var sq = sequence.sq;
-var st = require('../dist/SampleTransac.js');
+import * as assert from 'assert';
+import {sq} from '../src/Sequence';
+import * as st from '../src/SampleTransac';
+import * as set from '../src/SampleErrorTransac';
+
 var SampleTransac = st.default;
 var incrementGlobalCounter = st.incrementGlobalCounter;
 
-var set = require('../dist/SampleErrorTransac.js');
 var SampleErrorTransac = set.default;
 var launchError = set.launchError;
-
-function getPromise(val, err) {
-  return new Promise(function (resolve, reject) {
-    if (err) reject(err);
-    else resolve(val);
-  });
-}
 
 describe('sq(* -> yield <transaction>', function(){
   describe('with one transaction yield', function(){
@@ -66,13 +59,12 @@ describe('sq(* -> yield <transaction>', function(){
       });
     })
     it('should throw and rollback the sequences of transactions successfully', function(){
-      var error;
       SampleTransac.globalCounter = 0;
       return sq(function *(){
         yield new SampleTransac();
         yield new SampleTransac();
         assert(SampleTransac.globalCounter === 2);
-        yield launchError();
+        yield launchError(true);
       }).catch(function(err) {
         assert('sample error' == err.message);
         assert(err.transactionRollbackSucceed === true);
@@ -80,13 +72,12 @@ describe('sq(* -> yield <transaction>', function(){
       });
     })
     it('should throw and rollback the sequences of commited transactions successfully', function(){
-      var error;
       SampleTransac.globalCounter = 0;
       return sq(function *(){
         yield incrementGlobalCounter();
         yield incrementGlobalCounter();
         assert(SampleTransac.globalCounter === 2);
-        yield launchError();
+        yield launchError(true);
       }).catch(function(err) {
         assert('sample error' == err.message);
         assert(err.transactionRollbackSucceed === true);
@@ -94,7 +85,6 @@ describe('sq(* -> yield <transaction>', function(){
       });
     })
     it('should throw and fail to rollback the transaction', function(){
-      var error;
       SampleTransac.globalCounter = 0;
       return sq(function *(){
         yield incrementGlobalCounter();

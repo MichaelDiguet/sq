@@ -9,13 +9,15 @@
     "noUnusedLocals": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "sourceRoot": "src",
+    "sourceRoot": ".",
     "outDir": "dist",
     "skipLibCheck": true,
     "declaration": true
   },
+  "include": [
+    "src",
+    "test"
+  ],
   "exclude": [
-    "node_modules",
-    "dist"
   ]
 }

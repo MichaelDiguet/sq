@@ -29,7 +29,7 @@
       "stopOnEntry": false,
       "args": [
         "--no-timeouts",
-        "${workspaceRoot}/test/"
+        "${workspaceRoot}/dist/test/"
       ],
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": null,

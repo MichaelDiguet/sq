@@ -1,8 +1,8 @@
-var assert = require('assert');
-var sequence = require('../dist/Sequence.js');
-var sq = sequence.sq;
+import * as assert from 'assert';
+import {sq} from '../src/Sequence';
 
-var read = require('mz/fs').readFile;
+import * as mzfs from 'mz/fs';
+var read = mzfs.readFile;
 
 describe('sq() recursion', function(){
   it('should aggregate arrays within arrays', function(){

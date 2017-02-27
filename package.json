@@ -10,16 +10,20 @@
   "devDependencies": {
     "browserify": "^10.0.0",
     "istanbul-harmony": "0",
-    "mocha": "^2.0.0",
     "mz": "^1.0.2",
-    "typescript": "^2.1.6"
+    "typescript": "^2.1.6",
+    "@types/mocha": "^2.2.39",
+    "mocha": "^3.2.0",
+    "@types/should": "^8.1.30",
+    "should": "^11.2.0",
+    "tslint": "^4.4.2"
   },
   "scripts": {
     "pretest": "npm run build",
-    "test": "mocha --harmony",
+    "test": "mocha ./dist/test/**/*.test.js",
     "build": "./node_modules/.bin/tsc -p .",
-    "test-cov": "node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot",
-    "test-travis": "node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot",
+    "test-cov": "node ./dist/test/**/*.test.js node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot",
+    "test-travis": "node ./dist/test/**/*.test.js node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot",
     "prepublish": "npm run build"
   },
   "repository": {
